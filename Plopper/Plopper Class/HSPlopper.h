@@ -23,11 +23,10 @@
 
 @interface HSPlopperViewController : UIViewController
 
-@property CGRect frame;
-@property BOOL shown;
-@property (strong, nonatomic) NSString* displayTitle;
-
-@property (weak) id<HSPlopperDelegate> delegate;
+@property BOOL                              shown;
+@property NSString                          *displayTitle;
+@property UIViewController                  *superView;
+@property (weak) id<HSPlopperDelegate>      delegate;
 
 - (id)initWithSize:(CGSize)size;
 

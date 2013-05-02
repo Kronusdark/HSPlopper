@@ -10,6 +10,7 @@
 
 #define kAnimationDuration 0.15
 #define kAutoAdjustPadding 5
+#define kStatusBarHeight 20
 
 #import "HSPlopper.h"
 #import <QuartzCore/QuartzCore.h>
@@ -51,14 +52,13 @@
 - (void)adjustPosition {
     CGPoint center = self.view.center;
     CGSize size = self.view.frame.size;
-    CGRect windowRect = [[UIScreen mainScreen] bounds];
-    CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+    CGRect windowRect = self.superView.view.bounds;
     CGPoint newCenter = center;
 
     rightBounds = (windowRect.size.width) - (size.width / 2) - kAutoAdjustPadding;
     leftBounds = (size.width / 2) + kAutoAdjustPadding;
     topBounds = (size.height / 2) + kAutoAdjustPadding;
-    bottomBounds = (windowRect.size.height) - (size.height / 2) - kAutoAdjustPadding - statusBarFrame.size.height;
+    bottomBounds = (windowRect.size.height) - (size.height / 2) - kAutoAdjustPadding - kStatusBarHeight;
 
     if (center.x > rightBounds) {
         newCenter.x = rightBounds;

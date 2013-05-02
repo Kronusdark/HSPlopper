@@ -29,6 +29,7 @@
         NSLog(@"out");
     }
     HSPlopperViewController *plopper = [[HSPlopperViewController alloc] initWithSize:CGSizeMake(150, 100)];
+    plopper.superView = self;                                                                                // Setup SuperView (this is to prevent the plopper from rendering outside the view).
     plopper.displayTitle = [NSString stringWithFormat:@"Plop %d", self.ploppers.count];
     plopper.view.center = p;
     plopper.delegate = self;
